@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03_jQueryTest</title>
+</head>
+<body>
+<div>
+    <button id="btn1">Test1</button>
+    <button id="btn2">Test2</button>
+    <button id="btn3">Test3</button>
+    <button id="btn4">Test4</button>
+    <br/>
+</div>
+
+<!-- 使用jQuery -->
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    /**
+     * 1. 统计一共有多少个按钮
+     * 2. 取出第二个button的文本
+     * 3. 输出所有button标签的文本
+     * 4. 输出‘Test3’按钮是所有按钮中的第几个
+     */
+    // 1. 统计一共有多少个按钮
+    var $buttons = $('button')
+    console.log('1. Total button number: ' + $buttons.length)
+
+
+    // 2. 取出第二个button的文本
+    console.log('2. The second button text: ' + $buttons[1].innerHTML)
+    console.log('2. The second button text: ' + $buttons.get(1).innerHTML)
+
+
+    // 3. 输出所有button标签的文本
+    $buttons.each(function (index, value) {
+        console.log(index + ': ' + value.innerHTML, this)
+    })
+
+    $buttons.each(function () {
+        console.log(this)
+    })
+
+
+    // 4. 输出‘Test3’按钮是所有按钮中的第几个
+    console.log('btn3 is which one button: ' + $('#btn3').index())
+
+
+    // 5. 伪数组，没有数组内置的方法：forEach(), push(), pop(), splice()
+    console.log($buttons instanceof Array)
+
+    var array = {}
+    array.length = 0
+    array[0] = 'abc'
+    array.length = 1
+    array[1] = 'def'
+    array.length = 2
+    for (var i = 0; i < array.length; i++) {
+        console.log(i + ': ' + array[i])
+    }
+    console.log(array.forEach(), $buttons.forEach())
+
+</script>
+
+</body>
+</html>
