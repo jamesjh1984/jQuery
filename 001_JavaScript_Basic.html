@@ -4,22 +4,283 @@
     <meta charset="UTF-8">
     <title>001_JavaScript_Basic</title>
 
-    <script>
-        function displayDate() {
-            // document.writeln("<h2>Display Date</h2>");
-            document.getElementById("demo").innerHTML=Date();
-        }
-
-        window.alert("Java Script");
-    </script>
-
 </head>
 
 <body>
 
+
+
 <h2>Display Date</h2>
-<p id="demo"></p>
+<p id="demo1"></p>
 <button type="button" onclick="displayDate()">Display Date</button>
+<script>
+    function displayDate() {
+        // document.writeln("<h2>Display Date</h2>");
+        document.getElementById("demo1").innerHTML=Date();
+    }
+
+    // window.alert("Java Script");
+</script>
+
+
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h2>调用有参函数</h2>
+<button type="button" onclick="myFunction1('Harry Potter','Wizard')">Click ('Harry Potter','Wizard')</button>
+<br>
+<button type="button" onclick="myFunction1('Bob','Builder')">Click ('Bob','Builder')</button>
+<script>
+    function myFunction1(name, job) {
+        alert("Welcome " + name + ", the " + job);
+    }
+</script>
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h2>调用有有返回值的函数</h2>
+<p id="demo2"></p>
+<button type="button" onclick="myFunction2(4, 3)">Click (4 * 3)</button>
+<script>
+    function myFunction2(a, b) {
+        return a*b;
+    }
+    document.getElementById("demo2").innerHTML=myFunction2(4, 3);
+</script>
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h2>字符串长度， 特殊字符</h2>
+<script>
+    var txt1 = "Hello World!";
+    document.writeln("<p>txt1 : " + txt1 + "</p>");
+    document.writeln("<p>txt1 length: " + txt1.length + "</p><br>");
+
+    var txt2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    document.writeln("<p>txt2: " + txt2 + "</p>");
+    document.writeln("<p>txt2.length: " + txt2.length + "</p><br>");
+
+    var txt3 = "We are the so-called \"Vikings\" from the north.";
+    document.writeln("<p>txt3: " + txt3+ "</p>");
+</script>
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h2>字符串方法</h2>
+<script>
+    var txt4 = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCD";
+    var txt5 = "0123456789";
+    var txt6 = "   0123456789   ";
+    document.writeln("<p>txt4: " + txt4 + "</p>");
+    document.writeln("<p>txt5: " + txt5 + "</p><br>");
+    document.writeln("<p>返回指定索引位置的字符, txt4.charAt(2): " + txt4.charAt(2) + "</p>");
+    document.writeln("<p>返回指定索引位置字符的 Unicode 值, txt4.charAt(2): " + txt4.charCodeAt(2) + "</p>");
+    document.writeln("<p>连接两个或多个字符串，返回连接后的字符串, txt4.concat(txt4, txt5): " + txt4.concat(txt4, txt5) + "</p>");
+    document.writeln("<p>返回字符串中检索指定字符第一次出现的位置, txt4.indexOf(\"A\"): " + txt4.indexOf("A") + "</p>");
+    document.writeln("<p>返回字符串中检索指定字符最后一次出现的位置, txt4.lastIndexOf(\"A\"): " + txt4.lastIndexOf("A") + "</p>");
+    document.writeln("<p>找到一个或多个正则表达式的匹配, txt4.match(): " + txt4.match() + "</p>");
+    document.writeln("<p>检索与正则表达式相匹配的值, txt4.search(\"A\"): " + txt4.search("A") + "</p>");
+    document.writeln("<p>替换与正则表达式匹配的子串, txt4.replace(\"A\", \"@\"): " + txt4.replace("A", "@",) + "</p>");
+    document.writeln("<p>从起始索引号提取字符串中指定数目的字符, txt4.substr(20,3): " + txt4.substr(20,3) + "</p>");
+    document.writeln("<p>提取字符串中两个指定的索引号之间的字符, txt4.substring(1, 5): " + txt4.substring(1, 5) + "</p>");
+    document.writeln("<p>把字符串转换为小写, txt4.toLowerCase() : " + txt4.toLowerCase() + "</p>");
+    document.writeln("<p>移除字符串首尾空白, txt6.trim() : " + txt6.trim() + "</p>");
+</script>
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h2>IF-ELSE</h2>
+<p id="demo3"></p>
+<button type="button" onclick="myFunction3()">Click IF-ELSE</button>
+<script>
+    function myFunction3() {
+        var x="";
+        var time = new Date().getHours();
+        if (time > 5 && time < 12) {
+            x="Good Morning.";
+            window.alert("Good Morning.");
+        } else if (time >= 12 && time < 18) {
+            x="Good Afternoon.";
+            window.alert("Good Afternoon.");
+        } else {
+            x="Good Night.";
+            window.alert("Good Night.");
+        }
+        document.getElementById("demo3").innerHTML=x;
+    }
+</script>
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h2>SWITCH</h2>
+<p id="demo4"></p>
+<button type="button" onclick="myFunction4()">Click SWITCH</button>
+<script>
+    function myFunction4() {
+        var x="";
+        var day = new Date().getDay();
+        switch (day) {
+            case 0: x = "It's Sunday";
+                break;
+            case 1: x = "It's Monday";
+                break;
+            case 2: x = "It's Tuesday";
+                break;
+            case 3: x = "It's Wednesday";
+                break;
+            case 4: x = "It's Thursday";
+                break;
+            case 5: x = "It's Friday";
+                break;
+            case 6: x = "It's Saturday";
+                break;
+            default: x = "Default";
+        }
+        document.getElementById("demo4").innerHTML=x;
+    }
+</script>
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h2>FOR</h2>
+<p id="demo5"></p>
+<button type="button" onclick="myFunction5()">Click FOR</button>
+<script>
+    function myFunction5() {
+        var x = "";
+        var letters = "ABCDEFG";
+        for (var i = 0; i < letters.length; i++) {
+            x += letters[i] + "<br>";
+        }
+        document.getElementById("demo5").innerHTML = x;
+    }
+</script>
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h2>WHILE</h2>
+<p id="demo6"></p>
+<button type="button" onclick="myFunction6()">Click WHILE</button>
+<script>
+    function myFunction6() {
+        var x = "";
+        var i = 0;
+        var letters = "ABCDEFG";
+        while (i < letters.length) {
+            x = x + letters[i] + "<br>";
+            i++;
+        }
+        document.getElementById("demo6").innerHTML = x;
+    }
+</script>
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h2>DO-WHILE</h2>
+<p id="demo7">该循环至少会执行一次，即使条件为 false 它也会执行一次，因为代码块会在条件被测试前执行</p>
+<button type="button" onclick="myFunction7()">Click DO-WHILE</button>
+<script>
+    function myFunction7() {
+        var x = "";
+        var i = 0;
+        var letters = "ABCDEFG";
+        do {
+            x = x + letters[i] + "<br>";
+            i++;
+        } while (i < letters.length)
+        document.getElementById("demo7").innerHTML = x;
+    }
+</script>
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h2>TYPEOF</h2>
+<p id="demo8">
+    a = "James"<br>
+    b = 3.14<br>
+    c = false<br>
+    d = [1,2,3,4]<br>
+    e = {name:'James', age:18}<br>
+    f = undefined<br>
+    g = null<br>
+</p>
+<button type="button" onclick="myFunction8()">Click TYPEOF</button>
+<script>
+    function myFunction8() {
+        var a = "James";
+        var b = 3.14;
+        var c = false;
+        var d = [1,2,3,4];
+        var e = {name:'James', age:18};
+        var f = undefined ;
+        var g = null;
+
+        document.getElementById("demo8").innerHTML =
+            "\"James\" typeof: " + typeof a + "<br>" +
+            "3.14 typeof: " + typeof b + "<br>" +
+            "false typeof: " + typeof c + "<br>" +
+            "[1,2,3,4] typeof: " + typeof d + "<br>" +
+            "{name:'James', age:18} typeof: " + typeof e + "<br>" +
+            "undefined typeof: " + typeof f + "<br>" +
+            "null typeof: " + typeof g + "<br>" +
+            "(null === undefined): " + (g === f) + "<br>" +
+            "(null == undefined): " + (g == f) + "<br>";
+    }
+</script>
+
+
+
+
 
 </body>
 </html>
