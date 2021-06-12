@@ -266,18 +266,210 @@
         var g = null;
 
         document.getElementById("demo8").innerHTML =
-            "\"James\" typeof: " + typeof a + "<br>" +
-            "3.14 typeof: " + typeof b + "<br>" +
-            "false typeof: " + typeof c + "<br>" +
-            "[1,2,3,4] typeof: " + typeof d + "<br>" +
-            "{name:'James', age:18} typeof: " + typeof e + "<br>" +
-            "undefined typeof: " + typeof f + "<br>" +
-            "null typeof: " + typeof g + "<br>" +
+            "\"James\" : " + typeof a + "<br>" +
+            "3.14 : " + typeof b + "<br>" +
+            "false : " + typeof c + "<br>" +
+            "[1,2,3,4] : " + typeof d + "<br>" +
+            "{name:'James', age:18} : " + typeof e + "<br>" +
+            "undefined : " + typeof f + "<br>" +
+            "null : " + typeof g + "<br>" +
             "(null === undefined): " + (g === f) + "<br>" +
             "(null == undefined): " + (g == f) + "<br>";
     }
 </script>
 
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h2>constructor</h2>
+<p id="demo9">
+    a = "James"<br>
+    b = 3.14<br>
+    c = false<br>
+    d = [1,2,3,4]<br>
+    e = {name:'James', age:19}<br>
+    f = undefined<br>
+    g = null<br>
+</p>
+<button type="button" onclick="myFunction9()">Click constructor</button>
+<script>
+    function myFunction9() {
+        var a = "James";
+        var b = 3.14;
+        var c = false;
+        var d = [1,2,3,4];
+        var e = {name:'James', age:18};
+        var f = undefined ;
+        var g = null;
+
+        document.getElementById("demo9").innerHTML =
+            "\"James\" : " + a.constructor + "<br>" +
+            "3.14 : " + b.constructor + "<br>" +
+            "false : " + c.constructor + "<br>" +
+            "[1,2,3,4] : " + d.constructor + "<br>" +
+            "{name:'James', age:18} : " + e.constructor + "<br>" +
+            "new Date() : " + new Date().constructor + "<br>" +
+            "function () {} : " + function () {}.constructor + "<br>";
+    }
+</script>
+
+
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h2>search() & replace()</h2>
+<p>"Visit Apple!", 搜索字符串 "Apple", 并显示匹配的起始位置：</p>
+<button type="button" onclick="myFunction10()">search()</button>
+<p id="demo10"></p>
+
+
+<br>
+
+
+<p>替换"Microsoft"为"Apple"：</p>
+<button type="button" onclick="myFunction11()">replace()</button>
+<p id="demo11">Visit Microsoft!</p>
+
+<script>
+    function myFunction10() {
+        var str = "Visit Apple!";
+        var x = str.search(/Apple/i);
+        document.getElementById("demo10").innerHTML = x;
+    }
+
+    function myFunction11() {
+        var str = document.getElementById("demo11").innerHTML;
+        var x = str.replace(/Microsoft/i, "Apple");
+        document.getElementById("demo11").innerHTML = x;
+    }
+</script>
+
+
+
+
+
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h2>JavaScript判断输入字符串是否为数字、字母、下划线组成</h2>
+<input id="input01" type="text">
+<br>
+<button type="button" onclick="myFunction12()">Check</button>
+<p id="demo12"></p>
+<br>
+
+<h2>JavaScript判断字符串是否全部为字母</h2>
+<input id="input02" type="text">
+<br>
+<button type="button" onclick="myFunction13()">Check</button>
+<p id="demo13"></p>
+<br>
+
+<h2>JavaScript判断字符串是否全部为数字</h2>
+<input id="input03" type="text">
+<br>
+<button type="button" onclick="myFunction14()">Check</button>
+<p id="demo14"></p>
+<br>
+
+<h2>JavaScript判断是否带有小数</h2>
+<input id="input04" type="text">
+<br>
+<button type="button" onclick="myFunction15()">Check</button>
+<p id="demo15"></p>
+<br>
+
+<h2>JavaScript判断是否中文名称组成</h2>
+<input id="input05" type="text">
+<br>
+<button type="button" onclick="myFunction16()">Check</button>
+<p id="demo16"></p>
+<br>
+
+<h2>JavaScript判断邮件地址是否合法</h2>
+<input id="input06" type="text">
+<br>
+<button type="button" onclick="myFunction17()">Check</button>
+<p id="demo17"></p>
+<br>
+
+
+
+<script>
+    function isValid(str) {
+        return /^\w+$/.test(str);
+    }
+    function myFunction12() {
+        var str = document.getElementById("input01").value;
+        console.log(str);
+        document.getElementById("demo12").innerHTML = isValid(str);
+    }
+
+
+    function isLetter(str) {
+        return /^[a-zA-Z]+$/.test(str);
+    }
+    function myFunction13() {
+        var str = document.getElementById("input02").value;
+        console.log(str);
+        document.getElementById("demo13").innerHTML = isLetter(str);
+    }
+
+
+    function isNumber(str) {
+        return /^\d+$/.test(str);
+    }
+    function myFunction14() {
+        var str = document.getElementById("input03").value;
+        console.log(str);
+        document.getElementById("demo14").innerHTML = isNumber(str);
+    }
+
+
+    function isDecimal(str) {
+        return /^\d+\.\d+$/.test(str);
+    }
+    function myFunction15() {
+        var str = document.getElementById("input04").value;
+        console.log(str);
+        document.getElementById("demo15").innerHTML = isDecimal(str);
+    }
+
+
+    function isChinese(str) {
+        return /^[\u4E00-\u9FA5]{2,4}$/.test(str);
+    }
+    function myFunction16() {
+        var str = document.getElementById("input05").value;
+        console.log(str);
+        document.getElementById("demo16").innerHTML = isChinese(str);
+    }
+
+
+    function isEmail(str) {
+        return /^\w+@[a-zA-Z0-9]{2,10}(?:\.[a-z]{2,4}){1,3}$/.test(str);
+    }
+    function myFunction17() {
+        var str = document.getElementById("input06").value;
+        console.log(str);
+        document.getElementById("demo17").innerHTML = isEmail(str);
+    }
+</script>
 
 
 
