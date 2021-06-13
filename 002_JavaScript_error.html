@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>001_JavaScript_Basic</title>
+
+</head>
+
+<body>
+
+
+
+<h2>try catch</h2>
+<button type="button" onclick="message01()">Click</button>
+<script>
+    function message01() {
+        try {
+            adddlert("Welcome");
+        } catch (err) {
+            txt = "Error: " + err.message + "\n\n";
+            txt += "Click to continue. \n\n";
+            alert(txt);
+        }
+    }
+</script>
+
+
+
+
+<br>
+<hr>
+<br>
+
+
+
+
+<h2>try catch finally</h2>
+<p>input a number between 5 to 10</p>
+<input id="input01" type="text">
+<button type="button" onclick="message02()">Click</button>
+<p id="p01"></p>
+
+<script>5
+    function message02() {
+        var x = document.getElementById("input01").value;
+
+        try {
+            if(x == "") throw "It is null";
+            if(isNaN(x)) throw "It is not a number";
+            x = Number(x);
+            if (x < 5) {
+                throw "Too small."
+            } else if (x > 10) {
+                throw "Too large."
+            } else document.getElementById("p01").innerHTML = x;
+        } catch (err) {
+            document.getElementById("p01").innerHTML = "Error: " + err + ".";
+        } finally {
+            // clear the input box
+            document.getElementById("input01").value = "";
+        }
+    }
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
