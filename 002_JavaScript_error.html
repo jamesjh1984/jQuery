@@ -52,7 +52,7 @@
                 throw "Too small."
             } else if (x > 10) {
                 throw "Too large."
-            } else document.getElementById("p01").innerHTML = x;
+            } else document.getElementById("p01").innerHTML = "Correct: " + x;
         } catch (err) {
             document.getElementById("p01").innerHTML = "Error: " + err + ".";
         } finally {
