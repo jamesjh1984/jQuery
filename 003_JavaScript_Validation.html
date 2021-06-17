@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>003_JavaScript_Validation</title>
+
+</head>
+
+<body>
+
+
+<h2>JavaScript_Validation 01</h2>
+<form name="myForm" action="" onsubmit="return validationForm01()" method="post">
+    Name: <input type="text" name="name">
+    <input type="submit" value="submit">
+</form>
+
+<script>
+function validationForm01() {
+    var x = document.forms["myForm"]["name"].value;
+
+    if(x == null || x == "") {
+        alert("Need to input name.");
+        return false;
+    }
+}
+</script>
+
+
+
+<br>
+<hr>
+<br>
+
+
+
+
+<h2>JavaScript_Validation 02</h2>
+<form method="post">
+    Name: <input type="text" name="name" required="required">
+    <input type="submit" value="submit">
+</form>
+
+<p>Click submit button, if null, browser will alert error message.</p>
+
+
+<br>
+<hr>
+<br>
+
+
+
+
+<h2>JavaScript_Validation 03</h2>
+<p>input a number between 1 to 10</p>
+<input id="number03" type="text">
+<button type="button" onclick="validation03()">Click</button>
+<p id="p03"></p>
+
+<script>
+function validation03() {
+    var x = document.getElementById("number03").value;
+    var text;
+
+    if(isNaN(x) || x < 1 || x > 10) {
+        text = "Input incorrect.";
+    } else {
+        text = "Input correct.";
+    }
+    document.getElementById("p03").innerHTML = text;
+}
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
