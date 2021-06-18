@@ -52,7 +52,7 @@ function validationForm01() {
 
 
 <h2>JavaScript_Validation 03</h2>
-<p>input a number between 1 to 10</p>
+<p>input a number between 5 to 10</p>
 <input id="number03" type="text">
 <button type="button" onclick="validation03()">Click</button>
 <p id="p03"></p>
@@ -62,13 +62,40 @@ function validation03() {
     var x = document.getElementById("number03").value;
     var text;
 
-    if(isNaN(x) || x < 1 || x > 10) {
+    if(isNaN(x) || x < 5 || x > 10) {
         text = "Input incorrect.";
     } else {
-        text = "Input correct.";
+        text = "Correct number.";
     }
     document.getElementById("p03").innerHTML = text;
 }
+</script>
+
+
+<br>
+<hr>
+<br>
+
+
+
+
+<h2>JavaScript_Validation 04</h2>
+<p>input a number between 5 to 10</p>
+<input id="number04" type="number" min="5" max="10" required>
+<button type="button" onclick="validation04()">Click</button>
+<p>if the value out of 5 - 10, will alert an error.</p>
+<p id="p04"></p>
+
+<script>
+    function validation04() {
+        var inpObj = document.getElementById("number04");
+
+        if(inpObj.checkValidity() == false) {
+            document.getElementById("p04").innerHTML = inpObj.validationMessage;
+        } else {
+            document.getElementById("p04").innerHTML = "Correct number.";
+        }
+    }
 </script>
 
 
