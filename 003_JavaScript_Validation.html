@@ -99,6 +99,34 @@ function validation03() {
 </script>
 
 
+<br>
+<hr>
+<br>
+
+
+
+
+<h2>this关键字</h2>
+<p>input firstname and lastname</p>
+First Name: <input id="firstname05" type="text" min="5" required><br>
+Last Name： <input id="lastname05" type="text" min="5" required>
+<button type="button" onclick="validation05()">Click</button>
+<p>if the value out of 5 - 10, will alert an error.</p>
+<p id="p05"></p>
+
+<script>
+    function validation05() {
+        var inpObj = document.getElementById("number05");
+
+        if(inpObj.checkValidity() == false) {
+            document.getElementById("p05").innerHTML = inpObj.validationMessage;
+        } else {
+            document.getElementById("p05").innerHTML = "Correct number.";
+        }
+    }
+</script>
+
+
 
 
 
