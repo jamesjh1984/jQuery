@@ -10,12 +10,12 @@
 
 
 
-<h2>Display Date</h2>
+<h3>Display Date</h3>
 <p id="demo1"></p>
 <button type="button" onclick="displayDate()">Display Date</button>
 <script>
     function displayDate() {
-        // document.writeln("<h2>Display Date</h2>");
+        // document.writeln("<h3>Display Date</h3>");
         document.getElementById("demo1").innerHTML=Date();
     }
 
@@ -31,7 +31,7 @@
 
 
 
-<h2>调用有参函数</h2>
+<h3>调用有参函数</h3>
 <button type="button" onclick="myFunction1('Harry Potter','Wizard')">Click ('Harry Potter','Wizard')</button>
 <br>
 <button type="button" onclick="myFunction1('Bob','Builder')">Click ('Bob','Builder')</button>
@@ -48,7 +48,7 @@
 
 
 
-<h2>调用有有返回值的函数</h2>
+<h3>调用有有返回值的函数</h3>
 <p id="demo2"></p>
 <button type="button" onclick="myFunction2(4, 3)">Click (4 * 3)</button>
 <script>
@@ -65,7 +65,7 @@
 
 
 
-<h2>字符串长度， 特殊字符</h2>
+<h3>字符串长度， 特殊字符</h3>
 <script>
     var txt1 = "Hello World!";
     document.writeln("<p>txt1 : " + txt1 + "</p>");
@@ -86,7 +86,7 @@
 
 
 
-<h2>字符串方法</h2>
+<h3 id="string">字符串方法</h3>
 <script>
     var txt4 = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCD";
     var txt5 = "0123456789";
@@ -114,7 +114,7 @@
 
 
 
-<h2>IF-ELSE</h2>
+<h3>IF-ELSE</h3>
 <p id="demo3"></p>
 <button type="button" onclick="myFunction3()">Click IF-ELSE</button>
 <script>
@@ -142,7 +142,7 @@
 
 
 
-<h2>SWITCH</h2>
+<h3>SWITCH</h3>
 <p id="demo4"></p>
 <button type="button" onclick="myFunction4()">Click SWITCH</button>
 <script>
@@ -177,7 +177,7 @@
 
 
 
-<h2>FOR</h2>
+<h3>FOR</h3>
 <p id="demo5"></p>
 <button type="button" onclick="myFunction5()">Click FOR</button>
 <script>
@@ -198,7 +198,7 @@
 
 
 
-<h2>WHILE</h2>
+<h3>WHILE</h3>
 <p id="demo6"></p>
 <button type="button" onclick="myFunction6()">Click WHILE</button>
 <script>
@@ -221,7 +221,7 @@
 
 
 
-<h2>DO-WHILE</h2>
+<h3>DO-WHILE</h3>
 <p id="demo7">该循环至少会执行一次，即使条件为 false 它也会执行一次，因为代码块会在条件被测试前执行</p>
 <button type="button" onclick="myFunction7()">Click DO-WHILE</button>
 <script>
@@ -244,7 +244,7 @@
 
 
 
-<h2>TYPEOF</h2>
+<h3>TYPEOF</h3>
 <p id="demo8">
     a = "James"<br>
     b = 3.14<br>
@@ -286,7 +286,7 @@
 
 
 
-<h2>constructor</h2>
+<h3>constructor</h3>
 <p id="demo9">
     a = "James"<br>
     b = 3.14<br>
@@ -327,7 +327,7 @@
 
 
 
-<h2>search() & replace()</h2>
+<h3>search() & replace()</h3>
 <p>"Visit Apple!", 搜索字符串 "Apple", 并显示匹配的起始位置：</p>
 <button type="button" onclick="myFunction10()">search()</button>
 <p id="demo10"></p>
@@ -366,42 +366,42 @@
 
 
 
-<h2>JavaScript判断输入字符串是否为数字、字母、下划线组成</h2>
+<h3>JavaScript判断输入字符串是否为数字、字母、下划线组成</h3>
 <input id="input01" type="text">
 <br>
 <button type="button" onclick="myFunction12()">Check</button>
 <p id="demo12"></p>
 <br>
 
-<h2>JavaScript判断字符串是否全部为字母</h2>
+<h3>JavaScript判断字符串是否全部为字母</h3>
 <input id="input02" type="text">
 <br>
 <button type="button" onclick="myFunction13()">Check</button>
 <p id="demo13"></p>
 <br>
 
-<h2>JavaScript判断字符串是否全部为数字</h2>
+<h3>JavaScript判断字符串是否全部为数字</h3>
 <input id="input03" type="text">
 <br>
 <button type="button" onclick="myFunction14()">Check</button>
 <p id="demo14"></p>
 <br>
 
-<h2>JavaScript判断是否带有小数</h2>
+<h3>JavaScript判断是否带有小数</h3>
 <input id="input04" type="text">
 <br>
 <button type="button" onclick="myFunction15()">Check</button>
 <p id="demo15"></p>
 <br>
 
-<h2>JavaScript判断是否中文名称组成</h2>
+<h3>JavaScript判断是否中文名称组成</h3>
 <input id="input05" type="text">
 <br>
 <button type="button" onclick="myFunction16()">Check</button>
 <p id="demo16"></p>
 <br>
 
-<h2>JavaScript判断邮件地址是否合法</h2>
+<h3>JavaScript判断邮件地址是否合法</h3>
 <input id="input06" type="text">
 <br>
 <button type="button" onclick="myFunction17()">Check</button>
@@ -472,6 +472,21 @@
 </script>
 
 
+
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h3>void</h3>
+<a href="javascript:void(0)">点击，什么也不发生</a><br><br>
+<a href="javascript:void(alert('Warning!'))">点击，返回alert</a><br><br>
+<a href="#">点击，href="#"定位至页面顶端</a><br><br>
+<a href="?">点击，href="?"定位至页面顶端</a><br><br>
+<a href="#string">点击，定位至"字符串方法"</字符串方法></a><br><br>
 
 
 

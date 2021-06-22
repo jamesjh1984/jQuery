@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>005_JavaScript_async</title>
+    <style>
+        /* 首行缩进 */
+        p.indent {text-indent: 50px;}
+    </style>
+</head>
+
+<body>
+
+
+<h3>异步编程</h3>
+<p>什么时候用异步编程</p>
+<p>
+现在有一个按钮，如果我们设置它的 onclick 事件为一个死循环，那么当这个按钮按下，整个网页将失去响应。<br>
+为了避免这种情况的发生，我们常常用子线程来完成一些可能消耗时间足够长以至于被用户察觉的事情，比如读取一个大文件或者发出一个网络请求。<br>
+因为子线程独立于主线程，所以即使出现阻塞也不会影响主线程的运行。<br>
+但是子线程有一个局限：一旦发射了以后就会与主线程失去同步，我们无法确定它的结束，如果结束之后需要处理一些事情，比如处理来自服务器的信息，我们是无法将它合并到主线程中去的。<br>
+为了解决这个问题，JavaScript中的异步操作函数往往通过<b>回调函数</b>来实现异步任务的结果处理。<br>
+</p>
+
+<br>
+
+<p>回调函数</p>
+<p>
+回调函数就是一个函数，它是在我们启动一个异步任务的时候就告诉它：等你完成了这个任务之后要干什么。这样一来主线程几乎不用关心异步任务的状态了，他自己会善始善终。
+</p>
+
+
+
+<br>
+<hr>
+<br>
+
+
+
+<p>print函数等待3秒后执行</p>
+<p id="demo01" class="indent">
+<script>
+    function print01() {
+        document.getElementById("demo01").innerHTML = Date();
+    }
+    setTimeout(print01, 3000);
+</script>
+
+
+
+    <br>
+<hr>
+<br>
+
+
+
+<p>print函数等待5秒后执行</p>
+<p id="demo02" class="indent">
+<p id="demo03" class="indent">
+<script>
+    function print02() {
+        document.getElementById("demo02").innerHTML = "A";
+    }
+    setTimeout(print02, 5000);
+
+    document.getElementById("demo03").innerHTML = "B";
+</script>
+
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h3>Promise</h3>
+<p>3秒，5秒，8秒异步输出One, Two, Three<br>
+    它是用 "函数瀑布" 来实现的。可想而知，在一个复杂的程序当中，用 "函数瀑布" 实现的程序无论是维护还是异常处理都是一件特别繁琐的事情，而且会让缩进格式变得非常冗赘。</p>
+<p id="demo04" class="indent">
+<p id="demo05" class="indent">
+<p id="demo06" class="indent">
+<script>
+    setTimeout(function () {
+        document.getElementById("demo04").innerHTML = "One";
+        setTimeout(function () {
+            document.getElementById("demo05").innerHTML = "Two";
+            setTimeout(function () {
+                document.getElementById("demo06").innerHTML = "Three";
+            }, 8000)
+        }, 5000)
+    }, 3000);
+</script>
+
+
+<br><br>
+
+
+<p>现在我们用 Promise 来实现同样的功能：</p>
+<p id="demo07" class="indent">
+<p id="demo08" class="indent">
+<p id="demo09" class="indent">
+<script>
+    new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            document.getElementById("demo07").innerHTML = "One";
+            resolve();
+        }, 3000);
+    }).then(function () {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                document.getElementById("demo08").innerHTML = "Two";
+                resolve();
+            }, 5000);
+        });
+    }).then(function () {
+        setTimeout(function () {
+            document.getElementById("demo09").innerHTML = "Three";
+        }, 8000);
+    });
+</script>
+
+
+
+<br><br>
+
+
+<p>Promise 改进写法：</p>
+<p id="demo10" class="indent">
+<p id="demo11" class="indent">
+<p id="demo12" class="indent">
+<script>
+    function print(delay, id, content) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                document.getElementById(id).innerHTML = content;
+                resolve();
+            }, delay);
+        });
+    }
+
+    print(3000, "demo10", "One").then(function () {
+        return print(5000, "demo11", "Two");
+    }).then(function () {
+        return print(8000, "demo12", "Three");
+    });
+</script>
+
+
+
+
+
+</body>
+</html>

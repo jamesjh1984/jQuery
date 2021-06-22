@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>004_JavaScript_JSON</title>
+
+</head>
+
+<body>
+
+
+<h3>JSON ==> JavaScript对象</h3>
+JSON: <p id="p01_1"></p><br>
+JavaScript 对象: <p id="p01_2"></p>
+<script>
+    var json = '{ "sites": [' +
+        '{"name":"Apple", "url":"www.apple.com"},' +
+        '{"name":"Google", "url":"www.google.com"},' +
+        '{"name":"Microsoft", "url":"www.microsoft.com"}]}';
+    obj = JSON.parse(json);
+
+    document.getElementById("p01_1").innerHTML = json;
+    document.getElementById("p01_2").innerHTML = obj.sites[0].name + " : " + obj.sites[0].url + "<br>" +
+        obj.sites[1].name + " : " + obj.sites[1].url + "<br>" +
+        obj.sites[2].name + " : " + obj.sites[2].url + "<br>";
+</script>
+
+
+
+<br>
+<hr>
+<br>
+
+
+
+<h3>JavaScript对象 ==> JSON</h3>
+JavaScript 对象(单个): <p id="p02_1"></p><br>
+JSON: <p id="p02_2"></p>
+<br><br>
+JavaScript 对象(数组): <p id="p03_1"></p><br>
+JSON: <p id="p03_2"></p>
+<script>
+    var obj0 = {"name":"Apple", "url":"www.apple.com"};
+    var json0 = JSON.stringify(obj0);
+    document.getElementById("p02_1").innerHTML = obj0.name + " : " + obj0.url;
+    document.getElementById("p02_2").innerHTML = json0;
+
+
+    var obj = {"sites": [{"name":"Apple", "url":"www.apple.com"},{"name":"Google", "url":"www.google.com"},{"name":"Microsoft", "url":"www.microsoft.com"}]};
+    var json = JSON.stringify(obj);
+    document.getElementById("p03_1").innerHTML = obj.sites[0].name + " : " + obj.sites[0].url + "<br>" +
+                                                 obj.sites[1].name + " : " + obj.sites[1].url + "<br>" +
+                                                 obj.sites[2].name + " : " + obj.sites[2].url + "<br>";
+    document.getElementById("p03_2").innerHTML = json;
+
+
+</script>
+
+
+
+<br>
+<hr>
+<br>
+
+
+
+
+
+
+</body>
+</html>

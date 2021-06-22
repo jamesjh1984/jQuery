@@ -9,7 +9,7 @@
 <body>
 
 
-<h2>JavaScript_Validation 01</h2>
+<h3>JavaScript_Validation 01</h3>
 <form name="myForm" action="" onsubmit="return validationForm01()" method="post">
     Name: <input type="text" name="name">
     <input type="submit" value="submit">
@@ -35,7 +35,7 @@ function validationForm01() {
 
 
 
-<h2>JavaScript_Validation 02</h2>
+<h3>JavaScript_Validation 02</h3>
 <form method="post">
     Name: <input type="text" name="name" required="required">
     <input type="submit" value="submit">
@@ -51,7 +51,7 @@ function validationForm01() {
 
 
 
-<h2>JavaScript_Validation 03</h2>
+<h3>JavaScript_Validation 03</h3>
 <p>input a number between 5 to 10</p>
 <input id="number03" type="text">
 <button type="button" onclick="validation03()">Click</button>
@@ -79,7 +79,7 @@ function validation03() {
 
 
 
-<h2>JavaScript_Validation 04</h2>
+<h3>JavaScript_Validation 04</h3>
 <p>input a number between 5 to 10</p>
 <input id="number04" type="number" min="5" max="10" required>
 <button type="button" onclick="validation04()">Click</button>
@@ -106,23 +106,23 @@ function validation03() {
 
 
 
-<h2>this关键字</h2>
-<p>input firstname and lastname</p>
+<h3>this关键字</h3>
+<p>input firstname and lastname, will show fullname</p>
 First Name: <input id="firstname05" type="text" min="5" required><br>
-Last Name： <input id="lastname05" type="text" min="5" required>
-<button type="button" onclick="validation05()">Click</button>
-<p>if the value out of 5 - 10, will alert an error.</p>
+Last Name： <input id="lastname05" type="text" min="5" required><br>
+<button type="button" onclick="validation05()">Submit</button>
 <p id="p05"></p>
 
 <script>
     function validation05() {
-        var inpObj = document.getElementById("number05");
-
-        if(inpObj.checkValidity() == false) {
-            document.getElementById("p05").innerHTML = inpObj.validationMessage;
-        } else {
-            document.getElementById("p05").innerHTML = "Correct number.";
-        }
+        var person = {
+            firstName: document.getElementById("firstname05").value,
+            lastName: document.getElementById("lastname05").value,
+            fullName: function () {
+                return this.lastName + " " + this.firstName;
+            }
+        };
+        document.getElementById("p05").innerHTML = "Full Name: " + person.fullName();
     }
 </script>
 
